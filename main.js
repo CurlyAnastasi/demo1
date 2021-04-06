@@ -26,7 +26,7 @@ import sortFibonacciNum from './src/task7.js';
 // console.log(findLuckyTickets({min:2,max:5}));
 
 // TASK 6
-console.log(numericSequence (10, 64));
+// console.log(numericSequence (10, 64));
 
 // TASK 7
 // console.log(sortFibonacciNum({min:10, max:100, length:2}));

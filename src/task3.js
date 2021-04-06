@@ -8,31 +8,33 @@ Output: sorted array of triangles names;
 export default function sortTriangles(arr) {
     let sidesNames = [];
     let sidesValues = [];
+    let p = 0;
+    let sortedArr = [];
 
     // Validation
 
-    // check is it an array
-    if (!Array.isArray(arr)) return console.error('{status: failed, reason: Unvalid type of params. Should be an array}');
+    // check that it is an array
+    if (!Array.isArray(arr)) return ('{status: failed, reason: Unvalid type of params. Should be an array}');
 
     
     for (let triangle of arr) {
 
         // check that verticles have got 3 letters and is it a string
         if (typeof triangle.vertices !== 'string' || triangle.vertices.length !== 3 || triangle.vertices.match(/\d/)) {
-            return console.error(`{status: failed, reason: Unvalid params in triangle ${triangle.vertices}. Three vertices are needed}`);
+            return (`{status: failed, reason: Unvalid params in triangle ${triangle.vertices}. Three vertices are needed}`);
         };
 
         // check that names of sides are correct and their values are positive numbers
         sidesNames = triangle.vertices.toLowerCase().split('');
 
         if (sidesNames.some(el => triangle[el] < 1 || typeof triangle[el] !== 'number' || !triangle.hasOwnProperty(el))) {
-            return console.error(`{status: failed, reason: Unvalid type of params in triangle ${triangle.vertices}. Must be a positive number. And names of sides are simillar to vertices}`);
+            return (`{status: failed, reason: Unvalid type of params in triangle ${triangle.vertices}. Must be a positive number. And names of sides are simillar to vertices}`);
         };
 
         // check that all sides are correct
         sidesValues = sidesNames.map(el => triangle[el]);
         if (sidesValues[2] > sidesValues[0] + sidesValues[1] || sidesValues[1] > sidesValues[0] + sidesValues[2] || sidesValues[0] > sidesValues[1] + sidesValues[2]) {
-            return console.error(`{status: failed, reason: Unvalid params of side in triangle ${triangle.vertices}. Unposible to create a triangle with such sides}`);
+            return (`{status: failed, reason: Unvalid params of side in triangle ${triangle.vertices}. Unposible to create a triangle with such sides}`);
         };
     };
 
@@ -40,11 +42,11 @@ export default function sortTriangles(arr) {
     for (let triangle of arr) {
         sidesNames = triangle.vertices.toLowerCase().split('');
         sidesValues = sidesNames.map(el => triangle[el]);
-        let p = (sidesValues[0] + sidesValues[1] + sidesValues[2]) / 2;
+        p = (sidesValues[0] + sidesValues[1] + sidesValues[2]) / 2;
         triangle.square = Math.sqrt(p * (p - sidesValues[0]) * (p - sidesValues[1]) * (p - sidesValues[2]));
     };
     
-    let sortedArr = arr.sort((a, b) => a.square - b.square).map(el => el.vertices);
+    sortedArr = arr.sort((a, b) => a.square - b.square).map(el => el.vertices);
 
     return sortedArr;
 };
