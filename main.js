@@ -6,6 +6,8 @@ import findLuckyTickets from './src/task5.js';
 import numericSequence from './src/task6.js';
 import sortFibonacciNum from './src/task7.js';
 
+export {createChessBoard,analyseEnvelopes,sortFibonacciNum,sortTriangles,findLuckyTickets,findPalindrome,numericSequence};
+ 
 // TASK 1
 // console.log(createChessBoard(5,20,'*'));
 
@@ -31,4 +33,3 @@ import sortFibonacciNum from './src/task7.js';
 // TASK 7
 // console.log(sortFibonacciNum({min:10, max:100, length:2}));
 // console.log(sortFibonacciNum({length: 10}));
-

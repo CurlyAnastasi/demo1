@@ -11,7 +11,7 @@ export default function numericSequence(length, square) {
     // Validation
         // Check that length and square are numbers
     if (!Number.isInteger(length) || !Number.isInteger(square) || length < minValue || length > maxValue || square < minValue || square > maxValue ) {
-        return `{status: failed, reason: Values of length and min square must be integer numbers from ${minValue} to ${maxValue}}`;
+        return {status: 'failed', reason: `Values of length and min square must be integer numbers from 1 to 1000000`};
     };
 
     // Check every number from 1 and more and if its integer is more than square push to array
@@ -23,4 +23,5 @@ export default function numericSequence(length, square) {
     return arr.join(' ');
 };
 
-// console.log(numericSequence (10, 100));
+
+// console.log(numericSequence (10, 90));

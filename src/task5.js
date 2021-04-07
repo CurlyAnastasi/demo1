@@ -23,19 +23,19 @@ export default function findLuckyTickets (context) {
     // Validation
         // Check that argument is an object and not an array
     if (typeof context !== 'object' || Array.isArray(context)) {
-        return '{status: failed, reason: Unvalid type of params. Should be an object}';
+        return {status: 'failed', reason: instructions('Not an object')};
     };
         // Check that there are two keys inside object: min and max
     if (!context.hasOwnProperty('min') || !context.hasOwnProperty('max')) {
-        return '{status: failed, reason: There is no such key in object as min or max}';
+        return {status: 'failed', reason: instructions('Key is absent')};
     };
         // Check that values are integers
     if (!Number.isInteger(min) || !Number.isInteger(max)) {
-        return '{status: failed, reason: Values of min and max must be integer numbers}';
+        return {status: 'failed', reason: instructions('Not an integer')};
     };
         // Check that values are between 0 and 999999 and min less than max
     if (min < 0 || max < 0 || min > 999999 || max > 999999 || min > max) {
-        return '{status: failed, reason: Values of min and max must be from 0 to 999999 and min less than max}';
+        return {status: 'failed', reason: instructions('Unvalid value') };
     };
 
     for (let num = min; num <= max; num++) {
@@ -70,7 +70,14 @@ export default function findLuckyTickets (context) {
     return result;
 };
 
-
+function instructions(name) {
+    switch (name) {
+        case 'Not an object': return 'Unvalid type of params. Should be an object';
+        case 'Key is absent': return 'There is no such key in object as min or max';
+        case 'Not an integer': return 'Values of min and max must be integer numbers';
+        case 'Unvalid value': return 'Values of min and max must be from 0 to 999999 and min less than max';
+    };
+};
 // console.log(findLuckyTickets({min:123456,max:999999}));
 // console.log(findLuckyTickets({min:2,max:5}));
 // console.log(findLuckyTickets({min:2,max:555555}));
