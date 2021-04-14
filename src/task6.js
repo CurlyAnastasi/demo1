@@ -3,7 +3,7 @@ Input: length and value of min square. From 0 to 1000000.
 Output: string with numbers which square is more than min.
  */
 
-export default function numericSequence(length, square) {
+export function numericSequence(length, square) {
     let arr = [];
     let minValue = 1;
     let maxValue = 1000000;

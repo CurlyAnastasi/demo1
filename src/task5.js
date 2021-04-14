@@ -7,7 +7,7 @@ Input: {min:num, max:num};
 Output: {winer:simple/hard, simle:amount, hard:amount}.
 */
 
-export default function findLuckyTickets (context) {
+export function findLuckyTickets (context) {
     let min = context.min;
     let max = context.max;
     let sum1 = 0;

@@ -4,7 +4,7 @@ Input: two objects with sides of envelopes.
 Output: number of envelope in which we can put another or 0 if it is unpossible.
  */
 
-export default function analyseEnvelopes (env1, env2) {
+export function analyseEnvelopes (env1, env2) {
     let minValue = 1;
     let maxValue = 1000000;
 

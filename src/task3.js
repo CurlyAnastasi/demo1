@@ -5,7 +5,7 @@ Input: array of objects with 4 params: vertices, and sizes.
 Output: sorted array of triangles names;
 */
 
-export default function sortTriangles(arr) {
+export function sortTriangles(arr) {
     let sidesNames = [];
     let sidesValues = [];
     let p = 0;

@@ -3,7 +3,7 @@ Input: {min:number, max:number / length: number};
 Output: [Fibonacci numbers from min to max or with correct length]
  */
 
-export default function sortFibonacciNum (context) {
+export  function sortFibonacciNum (context) {
 
     let result = [1,1];
 

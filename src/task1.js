@@ -2,7 +2,7 @@
 Function which creates a chess boad with 3 params: length, width, symbol.
 And returns a string with a chess board. Min length and width = 2; max = 256. */
 
-export default function createChessBoard(length, width, symbol) {
+export function createChessBoard(length, width, symbol) {
     const min = 2;
     const max = 256;
     let symbolsAmount = 0;
@@ -41,7 +41,7 @@ export default function createChessBoard(length, width, symbol) {
 
     // Return chess board as a string
     return chessBoard.join('\n');
-};
+}
 
 function instructions(name) {
     switch (name) {

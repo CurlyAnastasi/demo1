@@ -4,7 +4,7 @@ Input: number. Length > 10.
 Output: palindrome or 0.
 */
 
-export default function findPalindrome (number) {
+export  function findPalindrome (number) {
     let variants = [];
     let palindromes = [];
     let maxLength = 20;
